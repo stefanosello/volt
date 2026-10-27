@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volt — Request an electrician</title>
+<style>body{font:16px/1.5 system-ui;margin:3rem auto;max-width:38rem;padding:0 1rem;color:#17212b}label{display:block;margin-top:1rem;font-weight:600}input,select,textarea,button{box-sizing:border-box;font:inherit;width:100%;padding:.65rem;border:1px solid #bbc7d2;border-radius:.4rem}button{margin-top:1.5rem;background:#153b58;color:white;cursor:pointer}small{color:#536474}h1{margin-bottom:.2rem}</style>
+<main><h1>Volt</h1><p>Describe your electrical job. Receive a technician-reviewed estimate without unnecessary phone calls.</p>
+<form action="/requests" method="post" enctype="multipart/form-data">
+<label for="service">Service</label><select name="service" id="service" required>{% for value,title in services.items() %}<option value="{{value}}">{{title}}</option>{% endfor %}</select>
+<label for="description">What do you need?</label><textarea name="description" id="description" maxlength="2000" rows="4" required></textarea>
+<label for="photos">Photos (up to 3, JPEG or PNG, 3MB each)</label><input type="file" id="photos" name="photos" accept="image/jpeg,image/png" multiple>
+<label for="name">Your name</label><input id="name" name="name" required maxlength="200">
+<label for="contact">Email or phone</label><input id="contact" name="contact" required maxlength="200">
+<label for="postcode">Postcode</label><input id="postcode" name="postcode" required maxlength="20">
+<button>Request an assessment</button><p><small>Quotes are preliminary until reviewed by a qualified professional. Do not use this form for emergencies, sparking, smoke, or a burning smell. In immediate danger, leave the area and call emergency services. Uploaded photos are temporarily sent to an AI provider for analysis if enabled; they are not retained by this prototype. Contact details and assessment text are stored for follow-up. Publish a privacy notice before accepting real customer data.</small></p>
+</form></main></html>
